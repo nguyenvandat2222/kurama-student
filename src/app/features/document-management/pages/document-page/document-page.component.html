@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h6 class="h6">Danh sách tài liệu</h6>
+    </div>
+    <div class="card-body">
+      <div class="text-center text-primary" *ngIf="!documentList">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let course of courses">
+          <button class="custom-btn mb-3" routerLink="document-list/{{course._id}}" type="button" mdbBtn [block]="true" mdbWavesEffect>
+            <i class="fas fa-folder-open ml-3 float-left"></i>
+            <span class="ml-3 float-left">{{course.name| slice: 0: 13}} <span *ngIf="course.name.length >= 13">...</span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

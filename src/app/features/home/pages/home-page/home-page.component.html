@@ -1,0 +1,31 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-md-7 mt-3">
+      <app-user-info [userInfo]="currentUser"></app-user-info>
+    </div>
+    <div class="col-md-5 mt-3">
+      <div class="row ">
+        <div class="col-md-12">
+          <app-notification [listCourse]="listCourse"></app-notification>
+        </div>
+        <div class="col-md-6 mt-3" *ngFor="let item of calendarItem">
+          <app-calendar-item [item]="item" [calendarList]="calendarList"></app-calendar-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 mt-3" *ngFor="let item of menuItems">
+      <a [routerLink]="item.router" [ngClass]="item.name === 'Certificate' && count < 400 ? 'disabled': ''" >
+        <app-menu-item [item]="item" ></app-menu-item>
+      </a>
+    </div>
+    <div class="col-md-5 mt-4">
+      <app-bar-chart [listCourse]="listCourse"></app-bar-chart>
+    </div>
+    <div class="col-md-3 mt-4">
+      <app-pie-chart [count]="count"></app-pie-chart>
+    </div>
+    <div class="col-md-4 mt-4">
+      <app-list-course [listCourse]="listCourse"></app-list-course>
+    </div>
+  </div>
+</div>

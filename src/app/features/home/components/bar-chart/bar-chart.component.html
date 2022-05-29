@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header dark-grey-text">
+    <p class="h5">Kết quả học tập</p>
+  </div>
+  <div class="card-body pt-4">
+    <div style="display: block">
+      <canvas mdbChart
+              [chartType]="chartType"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+</div>
+<!--  -->

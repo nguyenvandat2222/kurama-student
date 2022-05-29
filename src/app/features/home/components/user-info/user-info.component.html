@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <p class="h5 dark-grey-text">Thông tin sinh viên</p>
+  </div>
+  <div class="card-body" *ngIf="userInfo">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="{{userInfo.imgUrl}}" alt="thumbnail" class="img-thumbnail"
+             style="width: 200px">
+      </div>
+      <div class="col-md-5 small dark-grey-text">
+        <label>Id: </label><span class="font-weight-bold"> {{userInfo._id}}</span><br>
+        <label>Họ và tên: </label><span class="font-weight-bold"> {{userInfo.name}}</span><br>
+        <label>Ngày sinh: </label><span class="font-weight-bold"> {{userInfo.birthDay | date:'dd/MM/yyyy'}}</span>
+
+      </div>
+      <div class="col-md-3 small dark-grey-text p-0">
+        <label>Địa chỉ: </label><span class="font-weight-bold"> {{userInfo.location}}</span><br>
+        <label *ngIf="userInfo.major == 'SOFTWARE_ENGINEER'">Chuyên ngành: </label><span class="font-weight-bold " *ngIf="userInfo.major == 'SOFTWARE_ENGINEER'"> Kỹ thuật phần mềm</span>
+        <label  *ngIf="userInfo.major == 'ECONOMICS'">Chuyên ngành: </label><span class="font-weight-bold " *ngIf="userInfo.major == 'ECONOMICS'"> Kinh tế</span>
+        <label *ngIf="userInfo.major == 'POLITICAL'">Chuyên ngành: </label><span class="font-weight-bold " *ngIf="userInfo.major == 'POLITICAL'"> Chính trị</span>
+
+        <label *ngIf="userInfo.major == 'COMPUTER_SCIENCE'">Chuyên ngành: </label><span class="font-weight-bold " *ngIf="userInfo.major == 'Khoa học máy tính'"> Computer Science</span>
+
+      </div>
+    </div>
+  </div>
+</div>

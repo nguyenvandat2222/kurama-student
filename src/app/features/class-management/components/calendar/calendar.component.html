@@ -1,0 +1,43 @@
+<div class="row text-center" *ngIf="events">
+  <div class="col-md-4">
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button mdbBtn size="sm" type="button" color="primary" class="waves-light"
+              mwlCalendarPreviousView
+              [view]="view"
+              [(viewDate)]="viewDate"
+              (viewDateChange)="closeOpenMonthViewDay()" mdbWavesEffect>TRƯỚC</button>
+      <button mdbBtn size="sm" type="button" color="primary" class="waves-light"
+              mwlCalendarToday
+              [(viewDate)]="viewDate"
+              mdbWavesEffect (viewDateChange)="closeOpenMonthViewDay()">HÔM NAY</button>
+      <button mdbBtn size="sm" type="button" color="primary" class="waves-light"
+              mwlCalendarNextView
+              [view]="view"
+              [(viewDate)]="viewDate"
+              (viewDateChange)="closeOpenMonthViewDay()"
+              mdbWavesEffect>SAU</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <p class="small">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</p>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>
+<br />
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+  >
+  </mwl-calendar-month-view>
+</div>
+
+<!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+

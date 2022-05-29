@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card-body text-center">
+    <h4 *ngIf="item.icon !== 'award' && item.icon !== 'dollar-sign'"><mdb-icon far icon="{{item.icon}}"></mdb-icon></h4>
+    <h4 *ngIf="item.icon === 'award' || item.icon === 'dollar-sign'"><mdb-icon fas icon="{{item.icon}}"></mdb-icon></h4>
+    <p class="small dark-grey-text">{{item.name}}</p>
+  </div>
+</div>

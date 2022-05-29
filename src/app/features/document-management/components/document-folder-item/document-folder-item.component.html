@@ -1,0 +1,4 @@
+<button [title]="folder.name" type="button" mdbBtn [block]="true" mdbWavesEffect [routerLink]="routing.DOCUMENT_LIST +'/'+ folder._id">
+  <i class="fas fa-folder-open ml-3 float-left"></i>
+  <span class="ml-3 float-left" >{{folder.name | slice: 0:12}}<span *ngIf="folder.name.length > 12">...</span></span>
+</button>

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+  <p class="h5 dark-grey-text">Lớp học phần</p>
+  </div>
+  <div class="card-body">
+    <table mdbTable mdbTableScroll [scrollY]='true' maxHeight="200" maxWidth="400">
+      <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+      </thead>
+      <tbody *ngIf="listCourse">
+      <tr  *ngFor="let el of courseList, index as i">
+        <th scope="row">{{i+1}}</th>
+        <td *ngIf="el">{{el.name}}</td>
+        <td>
+          <mdb-badge *ngIf="el.status == false" [danger]="true">Chưa thanh toán</mdb-badge>
+          <mdb-badge *ngIf="el.status == true" [success]="true">Đã thanh toán</mdb-badge>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

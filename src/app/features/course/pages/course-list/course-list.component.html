@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h6>Danh sách phòng học đăng ký</h6>
+    </div>
+    <div class="card-body">
+      <table mdbTable #tableEl="mdbTable" class="text-center" >
+        <thead>
+        <tr >
+          <th class="tex-center" *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let el of elements; let i = index" >
+          <td>{{i+1}}</td>
+          <td>{{el.code}}</td>
+          <td>{{el.name}}</td>
+          <td>{{el.price}}</td>
+
+
+          <td>
+            <mdb-badge [pill]="true" [success]="true" *ngIf="el.status == true">Đã thanh toán</mdb-badge>
+            <mdb-badge [pill]="true" [danger]="true" *ngIf="el.status == false">Chưa thanh toán</mdb-badge>
+          </td>
+          <td>
+            <button type="button" mdbBtn size="sm" [ngClass]="el.status === true ? 'disabled' : ''"  [outline]="true" color="primary" mdbWavesEffect (click)="onClickBuy(el.price, el._id)">Thanh toán</button>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot class="grey lighten-5 w-100">
+        <tr >
+          <td colspan="9">
+            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

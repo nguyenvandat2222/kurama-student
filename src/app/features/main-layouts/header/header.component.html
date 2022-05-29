@@ -1,0 +1,48 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand >
+    <a routerLink="/home">
+      <img class="img-fluid" alt="Responsive image" src="https://res.cloudinary.com/dtozica7a/image/upload/v1653462010/Logo_IUH_psadqg.png">
+
+    </a>
+  </mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto ml-5">
+      <li class="nav-item ml-3" routerLinkActive="active">
+        <a class="nav-link waves-light dark-grey-text" [routerLink]="routing.HOME" mdbWavesEffect>Trang chủ</a>
+      </li>
+      <li class="nav-item ml-3" routerLinkActive="active">
+        <a class="nav-link waves-light dark-grey-text" mdbWavesEffect [routerLink]="routing.CALENDER_STUDY">Lịch học</a>
+      </li>
+
+
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+
+      <li class="nav-item">
+        <a class="nav-link">
+          <div class="btn-group" mdbDropdown>
+           <span mdbDropdownToggle *ngIf="currentUser">{{currentUser.username}} <mdb-icon fas icon="user" ></mdb-icon></span>
+            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Thông tin </a>
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cài đặt</a>
+              <div class="divider dropdown-divider"></div>
+              <a class="dropdown-item waves-light" mdbWavesEffect (click)="onLogout()">Đăng xuất</a>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

@@ -1,0 +1,14 @@
+<div class="card" [ngClass]="item.name == 'Calender study'?'custom-bg-01':'custom-bg-02'">
+  <div class="card-body small ">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="font-weight-bold">{{item.name}}</span>
+        <p class="h3" *ngIf="calendarList">{{calendarList.length}}</p>
+        <a [routerLink]="item.router">Xem chi tiết</a>
+      </div>
+      <div class="col-md-4 text-center">
+        <h4 class="mt-4"><mdb-icon far icon="{{item.icon}}"></mdb-icon></h4>
+      </div>
+    </div>
+  </div>
+</div>
